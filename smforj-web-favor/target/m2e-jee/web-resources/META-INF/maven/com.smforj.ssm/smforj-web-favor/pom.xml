@@ -1,0 +1,116 @@
+<!-- 
+  该项目针对零售业体验系统，依赖于smforj-core.1.0.2包，java-web 项目使用1.7版本的JRE，运行微信开发依赖包为smforj-wechat.1.0.1.jar
+ 
+
+ -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.smforj.ssm</groupId>
+    <artifactId>smforj</artifactId>
+    <version>1.0</version>
+  </parent>
+  <artifactId>smforj-web-favor</artifactId>
+  <packaging>war</packaging>
+  <name>favor</name>
+  <description>favor</description>
+  
+  	<properties> 
+		<project-build-sourceEncoding>UTF-8</project-build-sourceEncoding>
+	</properties>
+  <dependencies>
+  		<!-- smforj-web-core -->
+		<dependency>
+			<groupId>com.smforj.ssm</groupId>
+			<artifactId>smforj-web-core</artifactId>
+			<version>1.0.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<!-- smforj-web-wechat -->
+		<dependency>
+			<groupId>com.smforj.ssm</groupId>
+			<artifactId>smforj-wechat</artifactId>
+			<version>1.0.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency> 
+		<!-- 界面模板 -->
+		<dependency>
+			<groupId>com.smforj.ssm.template</groupId>
+			<artifactId>smforj-web-template-ssr</artifactId>
+			<version>1.0.2</version>
+			<type>war</type> 
+			<scope>compile</scope>
+		</dependency>
+		
+		<!-- 单元测试环境 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.easymock</groupId>
+			<artifactId>easymock</artifactId>
+			<version>3.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${springframework-version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Servlet环境 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId> 
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>javax.servlet.jsp.jstl-api</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/c3p0/c3p0 -->
+		<dependency>
+		    <groupId>c3p0</groupId>
+		    <artifactId>c3p0</artifactId>
+		    <version>0.9.1.2</version>
+		</dependency>
+  </dependencies>
+  <build>
+    <plugins>
+       <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId> 
+			<configuration>
+				<source>${jdk.version}</source>
+				<target>${jdk.version}</target>
+				<encoding>${project-build-sourceEncoding}</encoding>
+			</configuration>
+		</plugin> 
+		<plugin>
+			<groupId>org.apache.tomcat.maven</groupId>
+			<artifactId>tomcat6-maven-plugin</artifactId>
+			<version>2.2</version>
+			<configuration>
+		      <tomcat-url>http://localhost:8080/manager/html</tomcat-url> 
+		      <server>mytomcat6</server>
+              <username>admin</username>
+			  <password>admin</password> 
+		</configuration> 
+		</plugin> 
+    </plugins>
+  </build>
+</project>
